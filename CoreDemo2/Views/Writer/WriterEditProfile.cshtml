@@ -1,0 +1,45 @@
+﻿@model CoreDemo2.Models.UserUpdateViewModel
+
+@{
+    ViewData["Title"] = "WriterEditProfile";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Yazar Profil Bilgileri Düzenleme</h4>
+                @*<p class="card-description"> Yazar Profil Bilgileri Düzenleme </p>*@
+                <br />
+                <form class="forms-sample" method="post">
+                    <div class="form-group">
+                        <label for="exampleInputName1">Yazar Ad Soyad</label>
+                        <input type="text" asp-for="@Model.namesurname" class="form-control" />
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">Kullanıcı Adı</label>
+                        <input type="text" asp-for="@Model.username" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">Mail Adresi</label>
+                        <input type="text" asp-for="@Model.mail" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">Yeni Şifreniz</label>
+                        <input type="text" asp-for="@Model.password" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">Resim Yolu</label>
+                        <input type="text" asp-for="@Model.imageurl" class="form-control" />
+                    </div>
+
+                    <button type="submit" class="btn btn-gradient-primary mr-2">Güncelle</button>
+                    <a class="btn btn-light" href="/writer/WriterEditProfile/">İptal</a>
+                </form>
+            </div>
+        </div>
+    </div>

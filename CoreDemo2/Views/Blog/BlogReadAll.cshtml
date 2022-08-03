@@ -1,0 +1,87 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Blog>
+@{
+    ViewData["Title"] = "BlogDetails";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="zxx">
+<body>
+    <div class="banner-inner">
+    </div>
+    
+
+    <!--//banner-->
+    <section class="banner-bottom">
+        <!--/blog-->
+        <div class="container">
+            <div class="row">
+                <!--left-->
+                <div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
+                    @foreach (var item in Model)
+                    {
+                        <div class="blog-grid-top">
+                            <div class="b-grid-top">
+                                <div class="blog_info_left_grid">
+                                    <a href="single.html">
+                                        <img src="@item.BlogDetailImageUrl" class="img-fluid" alt="" width="700" height="500">
+                                    </a>
+                                </div>
+                                
+                            </div>
+
+                            <h3>
+                                <a href="single.html">@item.BlogTitle </a>
+                            </h3>
+                            <p>
+                                @item.BlogContent
+                            </p>
+                            <a href="/Blog/Index/" class="btn btn-primary read-m">Blog Listesi</a>
+                        </div>
+                    }
+
+
+                    @await Component.InvokeAsync("CommentListByBlog", new { id = ViewBag.i })
+
+                    @*await Html.PartialAsync("~/Views/Comment/CommentListByBlog.cshtml")*@
+
+                    @await Html.PartialAsync("~/Views/Comment/AddComment.cshtml")
+
+
+                </div>
+
+                <!--//left-->
+                <!--right-->
+                <aside class="col-lg-4 agileits-w3ls-right-blog-con text-right">
+                    <div class="right-blog-info text-left">
+                      
+
+                        @await Component.InvokeAsync("CategoryList")
+
+                        @await Component.InvokeAsync("WriterLastBlog")
+                       
+                        <div class="single-gd tech-btm">
+                            <h4>Son Eklenen Post</h4>
+                            <div class="blog-grids">
+                                <div class="blog-grid-left">
+                                    <a href="single.html">
+                                        <img src="~/web/images/phyton.jpg" class="img-fluid" alt="">
+                                    </a>
+                                </div>
+                                <div class="blog-grid-right">
+
+                                    <h5>
+                                        <a href="Blog/BlogReadAll/2">Phyton ile Veri Analizi</a>
+                                    </h5>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </aside>
+                <!--//right-->
+            </div>
+        </div>
+    </section>
+</body>
+</html>

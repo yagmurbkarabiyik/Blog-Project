@@ -1,0 +1,33 @@
+﻿@using EntityLayer.Concrete
+@model List<Notification>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+<table class=" table table-bordered text-center">
+    <tr>
+        <th>#</th>
+        <th>Bildirim Başlığı</th>
+        <th>Bildirim Oluşturma Tarihi</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.NotificationId</th>
+            <td>@item.NotificationType</td>
+            <td>@(((DateTime)item.NotificationDate).ToString("dd-MMMM-yyyy"))</td>
+          
+            <td><a href="/Notification/DeleteNotification/@item.NotificationId" class="btn btn-primary" onclick="confirmDel()">Sil</a></td>
+            <td><a href="/Notification/NotificationDetails/@item.NotificationId" class="btn btn-success">Düzenle</a></td>
+        </tr>
+    }
+</table>
+
+<script language="javascript">
+    function confirmDel() { var agree = confirm("Silmek istediğinize emin misiniz?"); if (agree) { return true; } else { return false; } }
+</script>
+

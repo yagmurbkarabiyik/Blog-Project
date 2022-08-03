@@ -1,0 +1,26 @@
+﻿@using EntityLayer.Concrete
+@model List<Notification>
+<div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+    <h6 class="p-3 mb-0"> <i class="mdi mdi-bell-ring menu-icon"></i> Bildirimler</h6>
+    @foreach (var item in Model.Where(x => x.NotificationStatus == true).OrderByDescending(x => x.NotificationId).Take(5))
+    {
+
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item preview-item">
+            <div class="preview-thumbnail">
+                <div class="@item.NotificationColor">
+                    <i class="@item.NotificationTypeSymbol"></i>
+                </div>
+            </div>
+            <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                <h6 class="preview-subject font-weight-normal mb-1">@item.NotificationType</h6>
+                <p class="text-gray ellipsis mb-0"> @item.NotificationDetails </p>
+            </div>
+        </a>
+    }
+
+    <div class="dropdown-divider"></div>
+    <a href="/Notification/Index/">
+        <h6 class="p-3 mb-0 text-center">Tüm Bildirimleri Gör  </h6>
+    </a>
+</div>

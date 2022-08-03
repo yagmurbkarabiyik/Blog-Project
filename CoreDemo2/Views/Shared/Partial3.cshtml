@@ -1,0 +1,35 @@
+﻿<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 footer-grid-agileits-w3ls text-left">
+                <h3>Hakkımızda</h3>
+                <p>Merhaba! BlogRain sayfamızda seni görmek çok güzel. Buralarda ilgi alanlarımıza yönelip kendimizi geliştirmek için çeşitli alanlarda paylaşımlar yapıoruz. Bunun yanı sıra etkinlikler düzenleyip eğlenceli ve öğretici faaliyetlerde bulunuyoruz. Aramıza katılmak için ne bekliyorsun?</p>
+                <div class="read">
+                    <a href="~/About/Index" class="btn btn-primary read-m">Devamını Oku</a>
+                </div>
+            </div>
+            <div class="col-lg-4 footer-grid-agileits-w3ls text-left">
+
+                @await Component.InvokeAsync("BlogLast3Post");
+            </div>
+            <!-- subscribe -->
+            <div class="col-lg-4 subscribe-main footer-grid-agileits-w3ls text-left">
+                <h2>Mail Bültenine Abone Olun</h2>
+                @await Html.PartialAsync("~/Views/NewsLetter/SubscribeMail.cshtml")
+
+                <!-- //subscribe -->
+            </div>
+        </div>
+        <!-- footer -->
+        <div class="footer-cpy text-center">
+            
+            <div class="w3layouts-agile-copyrightbottom">
+                <p>
+                    <br />
+                    © @DateTime.Now.Year ASP .NET Core 5.0 Proje Kampı Tüm Hakları Saklıdır. | Design by
+                    <a href="http://w3layouts.com/">W3layouts</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
